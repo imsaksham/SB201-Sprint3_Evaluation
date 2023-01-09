@@ -1,0 +1,107 @@
+i) IOC:
+
+• IOC Stands for Inversion of Control.
+
+• It is responsible to instantiate or configure an object also to inject a dependency into an application.
+
+• It enables framework to take control of the flow of a program and make calls to our custom code.
+
+
+ii) Dependency Injection:
+
+• It means to inject the dependency.
+
+• Dependency is just an another object where our class needs to function. A model class which fetches data from a database object, then we can say the model class has a dependency of that database object.
+
+• Injecting dependency means dependency is pushed into the class from the outside.
+
+• For example, 
+	class Student{  
+	Roll roll;
+  
+	Student(Roll roll){  
+	this.roll = roll;  
+	}  
+	public void setRoll(Roll roll){  
+		this.roll = roll;  
+	}  
+
+	}  
+
+
+iii) 
+Loose Coupling:
+
+• When an object gets the object to be used from external sources
+
+• It reduces maintenance effort.
+
+• For example,
+	interface Vehicle {
+      		public void move();
+	}
+	
+	class Car implements Vehicle {
+    		@Override
+    		public void move() {
+         			System.out.println("Car is moving");
+    		}
+	}
+
+	class Bike implements Vehicle {
+    		@Override
+    		public void move() {
+         			System.out.println("Bike is moving");
+    		}
+	}
+	
+	class Traveler {
+    		private Vehicle v;
+    		public Vehicle getV() {
+          			return v;
+    		}
+    		public void setV(Vehicle v) {
+         			this.v = v;
+    		}
+    		public void startJourney() {
+         			v.move();
+    		}
+	}
+
+	
+	public static void main(String[] args) {
+    		Traveler traveler = new Traveler();
+    		traveler.setV(new Car()); 
+    		traveler.startJourney();
+    		traveler.setV(new Bike());
+    		traveler.startJourney();
+	}
+
+
+Tight Coupling:
+
+• One class is tightly coupled with another class and highly depend on each other.
+
+• For example,
+	public class Course  {
+    		@Override
+    		public void enroll() {
+         			System.out.println("Successfully enrolled in the course");
+    		}
+	}
+
+	public class Student {
+    		Course c = new Course();
+    		public void getEnrolled() {
+         			c.enroll();
+   		}
+	}
+
+
+iv) Distributed Application:
+
+• The application which runs on different server.
+
+• Computational tasks can be distributed based on the data needs of the application
+
+• An application that produces data in one location and requires it in another physical location to function
